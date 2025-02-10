@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+    
+    <style>
+        @font-face {
+            font-family: 'Tartuffo';
+            src: url('fonts/Tartuffo_Trial-Bold-BF643371dae156a.otf') format('truetype');
+        }
+
+        /* Stili per il corpo della pagina */
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 11px;
+        }
+        
+        /* Nasconde la barra verticale */
+        /* Per Webkit (Chrome, Edge, Safari) */
+        ::-webkit-scrollbar { display: none; }
+        /* Per Firefox */
+            html { scrollbar-width: none; }
+            html { scroll-behavior: smooth; }    
+
+        /* Menù */
+        header {
+            position: fixed;
+            width: 100%;
+            height: 10%;
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1% 0 0 2%;
+            transition: background 0.3s, color 0.3s; /* Effetto di transizione fluido */
+            z-index: 9999;
+            box-sizing: border-box; /* Evita che il padding faccia sforare il 100% della larghezza */
+        }
+
+        header.light { background: transparent; }
+        header.light .logo a, header.light nav ul li a { color: black; }
+        header.light nav ul li:not(:last-child)::after { background-color: black; /* Cambia il colore della linea divisoria */}
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .logo a {
+            font-family: 'Tartuffo', serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            max-width: 90%;
+            margin: 0; /* Centra il menu */
+        }
+
+        nav ul li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-family: Helvetica, sans-serif;
+            font-weight: normal;
+            font-size: 16px;
+            padding: 0 15px; /* Riduce lo spazio laterale tra le voci */
+            white-space: nowrap; /* Impedisce il testo di andare a capo */
+        }
+
+        nav ul li:not(:last-child)::after {
+            content: "";
+            width: 1px;
+            height: 20px;
+            background-color: white;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Sezione video */
+        #video-section {
+            margin-top: 0; /* Distanza dal menu fissato in alto */
+            text-align: center;
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100vh; /* Prende l'intera altezza della finestra */
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-family: Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            /* Generali */
+                body {
+                    font-size: 11px;}
+                
+            /* Menù */
+                .menu-toggle {
+                display: block;
+                font-size: 24px;
+                cursor: pointer;
+                color: white;
+                background: none;
+                border: none;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+            nav ul {
+                display: none; /* Nasconde il menu */
+                flex-direction: column;
+                background: black;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+            nav ul.show {
+                display: flex; /* Mostra il menu quando si clicca il pulsante */
+            }
+
+        }
+    </style>
+
+    <!-- Nasconde il menù -->
+    <script>
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function() {
+            let navbar = document.getElementById("menu");
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                navbar.style.top = "-60px"; // Nasconde il menu
+            } else {
+                navbar.style.top = "0"; // Mostra il menu
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        window.onload = function() {
+            var messageButton = document.querySelector('.message-box');
+            
+            window.onscroll = function() {
+                if (window.scrollY > 100) {
+                    messageButton.classList.add('hidden'); // Nasconde il bottone quando si scorre
+                } else {
+                    messageButton.classList.remove('hidden'); // Mostra il bottone quando è in alto
+                }
+            };
+        };
+    </script>
+
+    <!-- Menù ad hamburger-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const menu = document.querySelector("nav ul");
+
+            if (menuToggle) {
+                menuToggle.addEventListener("click", function () {
+                    console.log("Menu clicked!");  // Debug: Controlla che il click venga registrato
+                    menu.classList.toggle("show");
+                });
+            }
+        });
+    </script> 
+
+</head>
+
+<body>
+    <header id="menu">
+        <div class="logo"><a href="index.html">catarsi</a></div>
+        <nav>
+            <ul>
+                <li><a href="index.html#sezione-2">about</a></li>
+                <li><a href="video.html">video</a></li>
+                <li><a href="progetto-editoriale.html">progetto editoriale</a></li>
+                <li><a href="index.html#sezione-9">chi sono</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle">☰</button> <!-- Aggiungi il pulsante del menù -->
+    </header>
+
+    <!-- Sezione video -->
+    <section id="video-section">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/ID_DEL_VIDEO" title="Video"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Corinne Biordi - All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Termini di Servizio</a></p>
+    </footer> 
+</body>
+</html>

@@ -1,0 +1,516 @@
+@font-face {
+    font-family: 'Tartuffo';
+    src: url('fonts/Tartuffo_Trial-Bold-BF643371dae156a.otf') format('opentype');
+}
+
+/* Stile generale */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+h3 {
+    background-color: transparent;
+    color: black;
+    font-weight: bold;
+    font-family: 'Tartuffo';
+    font-size: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Nasconde la barra verticale */
+        /* Per Webkit (Chrome, Edge, Safari) */
+            ::-webkit-scrollbar { width: 0px; }
+        /* Per Firefox */
+            html { scrollbar-width: none; }
+            html { scroll-behavior: smooth; }
+
+/* Menù */
+header {
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 0 0 2%;
+    transition: background 0.3s, color 0.3s; /* Effetto di transizione fluido */
+    z-index: 9999;
+    box-sizing: border-box; /* Evita che il padding faccia sforare il 100% della larghezza */
+}
+
+header.light { background: transparent; }
+header.light .logo a, header.light nav ul li a { color: black; }
+header.light nav ul li:not(:last-child)::after { background-color: black; /* Cambia il colore della linea divisoria */}
+
+.menu-toggle {
+            display: none;
+}
+
+.logo a {
+    font-family: 'Tartuffo', serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    max-width: 90%;
+    margin: 0; /* Centra il menu */
+}
+
+nav ul li {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 0 15px; /* Riduce lo spazio laterale tra le voci */
+    white-space: nowrap; /* Impedisce il testo di andare a capo */
+}
+
+nav ul li:not(:last-child)::after {
+    content: "";
+    width: 1px;
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Sezione 1: fotografia */
+#sezione-1 {
+    background-color: black;
+    height: 100vh;
+    max-width: 100vw;
+    padding-top: 2%;
+    display: flex;
+}
+
+.container-sezione1 {
+    display: flex;
+    flex: 1;
+    justify-content: space-between; /* Aggiungi questa linea se vuoi distribuire le colonne */
+    padding: 0 3%;
+    align-items:center;
+    box-sizing: border-box;  /* Includi il padding nelle dimensioni totali */
+    }
+
+.col-left-sezione1 {
+    flex: 1;
+    background-size: cover;
+    width: 50%;
+}
+
+.col-left-sezione1 img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+}
+
+.col-right-sezione1 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 30% 2% 0 0;
+    box-sizing: border-box;
+}
+
+.text-sezione1 p {
+    text-align: left;
+    width: 100%;
+    color:#f0f0f0;
+}
+
+/* Sezione 2: Capitolo 1*/
+#sezione-2 {
+    background-image: url('progetto editoriale/1.png');  /* Aggiungi il percorso corretto dell'immagine */
+    background-size: contain;  
+    background-position: center;  /* Centra l'immagine */
+    background-repeat: no-repeat;
+    height: 100%;  /* Imposta l'altezza della sezione a 100% della finestra */
+    width: 100%;
+    position: relative;
+    padding-top: 10%;
+    background-color: white;
+}
+
+.container-sezione2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;  /* Assicura che il contenuto si estenda sull'intera altezza */
+    position: relative;
+    padding: 0 2%;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.col-left-sezione2 {
+    flex: 1;
+    position: relative;
+    z-index: 2; /* Porta il contenuto in primo piano rispetto allo sfondo */
+}
+
+.col-right-sezione2 {
+    flex: 1;
+    padding: 10px;
+    z-index: 2;
+}
+
+.slider-imagens img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Sezione 3: Capitolo 2*/
+#sezione-3 {
+    background-image: url('progetto editoriale/cover_2.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%; 
+    width: 100%;
+    position: relative;
+    background-color: white;
+}
+
+.container-sezione3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding:0 2%;
+    box-sizing: border-box;
+}
+
+.col-left-sezione3 {
+    flex: 1;
+    position: relative;
+    z-index: 2; /* Porta il contenuto in primo piano */
+}
+
+.col-right-sezione3 {
+    flex: 1;
+    padding: 10px;
+    z-index: 2;
+    text-align: left;  /* Allinea il testo a destra */
+}
+
+.slider-imagens img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Sezione 4: Capitolo 3*/
+#sezione-4 {
+    background-image: url('progetto editoriale/cover_3.png');  /* Percorso immagine di sfondo */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;  /* Impostazione altezza sezione */
+    width: 100%;
+    position: relative;
+    background-color: white;
+}
+
+.container-sezione4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 0 2%;
+    box-sizing: border-box;
+}
+
+.col-left-sezione4 {
+    flex: 1;
+    position: relative;
+    z-index: 2; /* Porta il contenuto in primo piano */
+}
+
+.col-right-sezione4 {
+    flex: 1;
+    padding: 10px;
+    z-index: 2;
+}
+
+.slider-imagens img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Sezione 5: Capitolo 4*/
+#sezione-5 {
+    background-image: url('progetto editoriale/cover_4.png');  /* Percorso immagine di sfondo */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;  /* Impostazione altezza sezione */
+    width: 100%;
+    position: relative;
+    background-color: white;
+}
+
+.container-sezione5 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 0 2%;
+    box-sizing: border-box;
+}
+
+.col-left-sezione5 {
+    flex: 1;
+    position: relative;
+    z-index: 2; /* Porta il contenuto in primo piano */
+}
+
+.col-right-sezione5 {
+    flex: 1;
+    padding: 10px;
+    z-index: 2;
+    text-align: left;  /* Allinea il testo a destra */
+}
+
+.slider-imagens img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Sezione 6: Capitolo 5*/
+#sezione-6 {
+    background-image: url('progetto editoriale/cover_5.png');  /* Percorso immagine di sfondo */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%; 
+    width: 100%;
+    position: relative;
+    background-color: white;
+}
+
+.container-sezione6 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 0 2%;
+    box-sizing: border-box;
+}
+
+.col-left-sezione6 {
+    flex: 1;
+    position: relative;
+    z-index: 2; /* Porta il contenuto in primo piano */
+}
+
+.col-right-sezione6 {
+    flex: 1;
+    padding: 10px;
+    z-index: 2;
+}
+
+.slider-imagens img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    width: 100%;
+}
+footer a { color: white; text-decoration: none; }
+footer a:hover {    text-decoration: underline; }
+
+
+
+
+@media screen and (max-width: 768px) {
+    html, body {
+        height: 100%; 
+        font-size: 12px;
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: justify; 
+    }
+        h3 { font-size: 50px; text-align: center; }
+        p { text-align: center; width: 90%; }
+
+    /* Menù */
+    .menu-toggle {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+        background: none;
+        border: none;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+    nav ul {
+        display: none; /* Nasconde il menu */
+        flex-direction: column;
+        background: black;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+    nav ul.show {
+        display: flex; /* Mostra il menu quando si clicca il pulsante */
+    }
+    
+    /* Sezione 1 */
+    #sezione-1 {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        width: 100vw;
+        padding: 3%;
+        text-align: center;
+        padding-top: 10%;
+    }
+
+    .container-sezione1 {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        align-items: center;
+    }
+
+    #sezione-1 img {
+        width: 100%;
+        display: block;
+        margin: 0 auto 1%;
+        padding-top: 7%;
+    }
+
+    .col-left-sezione1, .col-right-sezione1 {
+        width: 100%;
+    }
+
+    .col-right-sezione1 {
+        padding: 10% 0;
+    }
+
+    .text-sezione1 p {
+        text-align: center;
+        width: 100%;
+        color:#f0f0f0;
+    }
+
+    /* Generali  */
+    * {
+        margin: 0;
+        padding: 0 1%;
+        box-sizing: border-box;
+    }
+
+    .container-sezione2, .container-sezione3, .container-sezione4, .container-sezione5, .container-sezione6 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #sezione-3 .container-sezione3 {
+        display: flex;
+        flex-direction: column-reverse; /* Inverte l'ordine, mettendo il testo prima delle immagini */
+    }
+
+    #sezione-5 .container-sezione5 {
+        display: flex;
+        flex-direction: column-reverse; /* Inverte l'ordine, mettendo il testo prima delle immagini */
+    }
+
+    /* Immagini (slider) */
+    .slider-imagens {
+        display: flex;
+        overflow: hidden;
+        gap: 15px;
+    }
+
+    .slider-imagens img {
+        width: 100%;
+        height: 50vh;
+        object-fit: cover;
+        object-position: center;
+        background-position: center; 
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    /* Footer */
+    footer {
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-family: Helvetica, sans-serif;
+        font-size: 14px;
+        width: 100vw; /* Assicurati che il footer copra tutta la larghezza */
+        margin: 0; /* Rimuove qualsiasi margine che potrebbe causare lo spazio bianco */
+        position: relative;
+        left: 0; /* Garantisce che il footer si allinei correttamente a sinistra */
+        box-sizing: border-box; /* Include padding nella larghezza */
+        margin-top: auto; /* Spinge il footer in fondo alla pagina */
+    }
+    footer a { color: white; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+}

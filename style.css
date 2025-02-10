@@ -1,0 +1,681 @@
+@font-face {
+    font-family: 'Tartuffo';
+    src: url('fonts/Tartuffo_Trial-Bold-BF643371dae156a.otf') format('truetype');
+}
+
+/* Stile generale */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font-family: Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.credit-box-1 {
+    font-size: 20px;
+}
+
+/* Nasconde la barra verticale */
+        /* Per Webkit (Chrome, Edge, Safari) */
+        ::-webkit-scrollbar { display: none; }
+        /* Per Firefox */
+            html { scrollbar-width: none; }
+            html { scroll-behavior: smooth; }
+
+/* Menù */
+header {
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 0 0 2%;
+    transition: background 0.3s, color 0.3s; /* Effetto di transizione fluido */
+    z-index: 9999;
+    box-sizing: border-box; /* Evita che il padding faccia sforare il 100% della larghezza */
+}
+
+header.light { background: transparent; }
+header.light .logo a, header.light nav ul li a { color: black; }
+header.light nav ul li:not(:last-child)::after { background-color: black; /* Cambia il colore della linea divisoria */}
+
+.menu-toggle {
+            display: none;
+}
+
+.logo a {
+    font-family: 'Tartuffo', serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    max-width: 90%;
+    margin: 0; /* Centra il menu */
+}
+
+nav ul li {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 0 15px; /* Riduce lo spazio laterale tra le voci */
+    white-space: nowrap; /* Impedisce il testo di andare a capo */
+}
+
+nav ul li:not(:last-child)::after {
+    content: "";
+    width: 1px;
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Sezione 1: Immagine a tutta pagina */
+#sezione-1 {
+    width: 100%;
+    height: 100vh;
+    background-image: url('images/Allen\ 1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Sezione 2: Introduzione */
+#sezione-2 {
+    background-color: white;
+    color: black;
+    padding: 100px 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-sezione-2 {
+    display: flex;
+    flex-direction: row;
+    max-width: 900px;
+    width: 90%;
+    gap: 90px;
+}
+
+.image-box-sezione-2, .text-box-sezione-2 {
+    flex: 1;
+    padding: 30px;
+}
+
+.image-box-sezione-2 img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-box-sezione-2 p {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    text-align: left;
+}
+
+/* Sezione 3: Crediti e immagini */
+#sezione-3 {
+    background-color: white;
+    padding: 70px 0 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-grid {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 2.5fr;
+    grid-template-rows: auto;
+    gap: 20px;
+    max-width: 1000px;
+    width: 90%;
+}
+
+.empty-space {
+    background-color: transparent;
+}
+
+.image-uniform {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.credit-box {
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+    padding: 230px 0 0;
+}
+
+/* Sezione 4: Foto a tutta larghezza */
+#sezione-4 {
+    width: 100%;
+    height: 800px;
+    background-image: url('images/Allen\ 4.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+    box-sizing: border-box;
+}
+
+.photo-container {
+    width: 100%;
+}
+
+.photo-text {
+    font-family: 'Tartuffo', serif;
+    font-size: 30px;
+    color: white;
+    flex: 1;
+}
+
+.photo-credit {
+        font-family: Helvetica, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: right;
+        color: black;
+        padding: 20px;
+    }
+
+/* Sezione 5: 3 immagini */
+#sezione-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 120px 20px 0;
+}
+
+.container-sezione-5 {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    width: 90%;
+}
+
+.image-row {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Sezione 6: testo + crediti */
+
+#sezione-6 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+    padding: 0 1% 0 8%;
+}
+
+.container-sezione-6 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 100%;
+    width: 90%;
+}
+
+.credit-box-1 {
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: right;
+    color: black;
+    padding: 10px;
+}
+
+.text-box {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    color: black;
+    text-align: left;
+    padding: 20px;
+}
+
+/* Sezione 7: due foto + crediti */
+#sezione-7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 100px 0;
+}
+
+.container-sezione-7 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    max-width: fit-content;
+    width: 90%;
+    text-align: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Allinea tutto a sinistra */
+}
+
+.credit-column {
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.column img {
+    width: 100%;
+    max-width: 400px; /* Imposta una larghezza massima */
+    height: auto;
+}
+
+/* Sezione 8: immagine tutta grandezza + credito */
+#sezione-8 {
+    width: 100%;
+    height: 100vh; /* Occupa tutta l'altezza della finestra */
+    position: relative;
+}
+
+.container-sezione-8 {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.container-sezione-8 img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Adatta l'immagine senza deformarla */
+}
+
+.credit-sezione-8 {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    padding: 10px 15px;
+}
+
+/* Sezione 9: chi sono */
+#sezione-9 {
+    background-color: white;
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-sezione-9 {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 30px;
+    max-width: 1200px;
+    width: 90%;
+}
+
+.text-box-sezione-9 {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    color: black;
+    padding: 20px;
+    text-align: left;
+}
+
+.text-box-sezione-9 p {
+    margin: 10px 0;
+}
+
+.image-box-sezione-9 img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+}
+
+/* Sezione 10: Scrivi un messaggio */
+#sezione-10 {
+    background-color:black;
+    padding: 50px;
+    text-align: center;
+    color: white;
+}
+
+#sezione-10 h1 {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+form {
+    background-color:black;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+label {
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+    height: 10%;
+}
+
+button[type="submit"] {
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+
+/* Bottone fisso per messaggi */
+.message-box {
+    position: fixed;
+    bottom: 100px;
+    right: 150px;
+    padding: 25px 55px;
+    border: 1px solid white;
+    text-decoration: none;
+    color: white;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease; 
+}
+
+.message-box:hover {
+    background-color: white;
+    color: black;
+}
+
+.message-box.hidden {
+    opacity: 0; /* Nasconde il bottone */
+    pointer-events: none; /* Disabilita il click */
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+/* Generali */
+    html, body { font-size: 12px;}
+    .credit-box-1 {
+        font-size: 16px;}
+    .text-box { font-size: 11px;}
+    
+/* Menù */
+    .menu-toggle {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+        background: none;
+        border: none;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+    nav ul {
+        display: none; /* Nasconde il menu */
+        flex-direction: column;
+        background: black;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+    nav ul.show {
+        display: flex; /* Mostra il menu quando si clicca il pulsante */
+    }
+
+/* Sezione 1 - bottone */
+    .message-box {
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        white-space: nowrap;
+        padding: 15px 45px;
+        font-size: 16px;
+        bottom: 20%;
+    }
+
+/* Sezione 2 */
+    #sezione-2 {
+        padding: 0;
+        align-items: center;
+    }
+    .container-sezione-2 {
+        flex-direction: column;
+        text-align: left;
+    }
+    .image-box-sezione-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 70%;
+    }
+    .image-box-sezione-2 img {
+        max-width: 100%;
+        height: auto;
+    }
+    .text-box-sezione-2 {
+        width: 90%; /* Occupa tutta la larghezza */
+        padding: 0 5%;
+        text-align: center;
+    }
+    .text-box-sezione-2 p {
+        text-align: center;
+        font-size: 12px;
+    }
+
+/* Sezione 3 */
+    #sezione-3 {
+    padding: 5% 0;
+    }
+
+    .container-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr; 
+        gap: 1%;
+        max-width: 100%;
+        width: 100%;
+        padding: 0 5%;
+    }
+    .empty-space {
+        display: none;
+    }
+    .image-boxA, .credit-box {
+        padding: 0 5%;
+    }
+
+    .credit-box {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    /* Ordine della griglia per la versione mobile */
+    .credit-box:nth-of-type(1) { grid-column: 1; grid-row: 1; }
+    .image-boxA:nth-of-type(1) { grid-column: 2; grid-row: 1; }
+
+    .image-boxA:nth-of-type(2) { grid-column: 1; }
+    .credit-box:nth-of-type(2) { grid-column: 2; }
+
+    .credit-box:nth-of-type(3) { grid-column: 1; }
+    .image-boxA:nth-of-type(3) { grid-column: 2; }
+
+/* Sezione 4 */
+    #sezione-4 {
+        padding: 10% 5%;
+        flex-direction: column; 
+        justify-content: flex-start; /* Allineamento in alto */
+    }
+    .photo-text {
+        font-size: 20px; 
+        text-align: left; 
+        padding: 0; 
+    }
+    .photo-credit {
+        font-size: 16px; 
+        text-align: left;
+        padding-top: 100%; 
+    }
+
+/* Sezione 5 */
+    #sezione-5 {
+        padding: 15% 5% 0;
+    }
+    .container-sezione-5 {
+        justify-content: flex-start;
+        overflow-x: auto;
+        white-space: nowrap;
+        position: relative;
+        scroll-snap-type: x mandatory; /* Abilita lo scroll "a scatti" */
+    }
+    .image-row {
+        max-width: 350px;
+        width: 100%;
+        height: auto;
+        display:  inline-block;
+        scroll-snap-align: start; /* Ogni immagine si "aggancia" al punto di snap */
+    }
+
+    .photo-credit {
+        font-size: 16px;
+        text-align: end;
+        margin-top: 2%;
+    }
+
+/* Sezione 6 */
+    #sezione-6 {
+        padding: 0 5%;
+    }
+
+    .container-sezione-6 {
+        gap: 1%;
+    }        
+    .credit-box-1 {
+        font-size: 16px;
+        padding: 0;
+    }
+    .text-box {
+        font-size: 12px;
+        padding-top:0;
+    }
+
+/* Sezione 7 */
+    #sezione-7 {
+        padding: 10% 5%;
+    }
+    .container-sezione-7 {
+        gap: 5%;
+    }
+    .credit-column {
+        font-size: 16px;
+    }
+
+/* Sezione 8 */
+.credit-sezione-8 {
+    font-size: 16px;
+    padding: 0 5%;
+    }
+}

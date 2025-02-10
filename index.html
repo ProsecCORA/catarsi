@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catarsi</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Nasconde il menù -->   
+        <script>
+            let lastScrollTop = 0;
+            window.addEventListener("scroll", function() {
+                let navbar = document.getElementById("menu");
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop) {
+                    navbar.style.top = "-60px"; // Nasconde il menu
+                } else {
+                    navbar.style.top = "0"; // Mostra il menu
+                }
+                lastScrollTop = scrollTop;
+            });
+
+            window.onload = function() {
+                var messageButton = document.querySelector('.message-box');
+                
+                window.onscroll = function() {
+                    if (window.scrollY > 100) {
+                        messageButton.classList.add('hidden'); // Nasconde il bottone quando si scorre
+                    } else {
+                        messageButton.classList.remove('hidden'); // Mostra il bottone quando è in alto
+                    }
+                };
+            };
+        </script>
+    <!--  Menù ad hamburger-->  
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.querySelector(".menu-toggle");
+                const menu = document.querySelector("nav ul");
+
+                menuToggle.addEventListener("click", function () {
+                    menu.classList.toggle("show");
+                });
+            });
+        </script> 
+    <!-- Cambio colore del menù -->   
+        <script>
+            document.addEventListener("scroll", function() {
+                const header = document.querySelector("header");
+                const sections = document.querySelectorAll("section, div"); // Controlla tutte le sezioni e div della pagina
+            
+                let isOnLightBackground = false; // Variabile per controllare se il menù è su sfondo chiaro
+            
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 50 && rect.bottom >= 50) { // Controlla se la sezione è sotto il menù
+                        const bgColor = window.getComputedStyle(section).backgroundColor;
+                        const rgb = bgColor.match(/\d+/g); // Estrai i valori RGB
+            
+                        if (rgb) {
+                            const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+                            if (brightness > 128) { // Se lo sfondo è chiaro
+                                isOnLightBackground = true;
+                            }
+                        }
+                    }
+                });
+            
+                if (isOnLightBackground) {
+                    header.classList.add("light");
+                } else {
+                    header.classList.remove("light");
+                }
+            });
+        </script> 
+    
+    <header id="menu">
+        <div class="logo"><a href="#">catarsi</a></div>
+        <button class="menu-toggle">☰</button> <!-- Pulsante menu hamburger -->
+            <nav>
+                <ul>
+                    <li><a href="#sezione-2">about</a></li>
+                    <li><a href="video.html">video</a></li>
+                    <li><a href="progetto-editoriale.html">progetto editoriale</a></li>
+                    <li><a href="#sezione-9">chi sono</a></li>
+                </ul>
+            </nav>
+    </header>     
+</head>
+
+<body>  
+<!-- Sezione 1: fotografia tutta grandezza -->
+    <section id="sezione-1">
+        <div class="full-image">
+        </div>
+    </section>
+
+<!-- Sezione 2: Introduzione al progetto -->
+    <section id="sezione-2">
+        <div class="container-sezione-2">
+            <div class="image-box-sezione-2">
+                <img src="images/DSCF6621.png" alt="Fotografia del progetto">
+            </div>
+            <div class="text-box-sezione-2">
+                <p>“Catarsi” è un progetto artistico che esplora e racconta il potere terapeutico del tatuaggio. Collaborando con numerosi artisti tatuatori, della scena italiana e non solo, si testimonia come la tecnica sia un valido strumento di supporto nel processo di guarigione mentale. Il tema viene declinato in due elaborati distinti: un cortometraggio e un progetto editoriale.
+                    L’obiettivo è valorizzare il tatuaggio non solo nella sua funzione estetica, ma nella sua capacità di trasformare il dolore in espressione, permettendo a ogni cicatrice, fisica o mentale, di diventare arte.
+                </p>
+            </div>
+        </div>
+    </section>
+
+<!-- Sezione 3: fotografia + crediti -->
+    <section id="sezione-3">
+        <div class="container-grid">
+            <div class="empty-space"></div>
+            <div class="credit-box">
+                <p>Hillary Blair</p>
+            </div>
+            <div class="image-boxA">
+                <img src="images/Hillary Blair.jpg" alt="Immagine destra" class="image-uniform">
+            </div>
+            <div class="image-boxA">
+                <img src="images/Resilience/106818818_321074038915056_2486059243822408091_n.png" alt="Immagine sinistra" class="image-uniform">
+            </div>
+            <div class="credit-box">
+                <p>Anja Weiss</p>
+            </div>
+            <div class="empty-space"></div>
+            <div class="empty-space"></div>
+            <div class="credit-box">
+                <p>Friday Jones</p>
+            </div>
+            <div class="image-boxA">
+                <img src="images/Friday 2.png" alt="Immagine destra" class="image-uniform">
+            </div>
+        </div>
+    </section>
+    
+<!-- Sezione 4: fotografia a tutta grandezza + testo + crediti -->
+    <section id="sezione-4">
+        <div class="photo-container">
+            <div class="photo-text">Il potere della trasformazione</div>
+            <div class="photo-credit">ALLEN DAVID</div>
+        </div>
+    </section>
+
+<!-- Sezione 5: tre fotografie -->
+    <section id="sezione-5">
+        <div class="container-sezione-5">
+            <img src="images/Jo Harrison 1.png" alt="Foto 1" class="image-row">
+            <img src="images/Jo Harrison 3.png" alt="Foto 3" class="image-row">
+            <img src="images/Jo Harrison 2.png" alt="Foto 2" class="image-row">
+        </div>
+    </section>
+
+<!-- Sezione 6: testo + crediti -->
+    <section id="sezione-6">
+        <div class="container-sezione-6">
+            <div class="credit-box-1">
+                <p>Jo Harrison</p>
+            </div>
+            <div class="text-box">
+                <p>Testo della prima colonna. Qui puoi inserire il contenuto descrittivo o un messaggio evocativo.</p>
+            </div>
+        </div>
+    </section>
+
+<!-- Sezione 7: fotografia + crediti --> 
+    <section id="sezione-7">
+        <div class="container-sezione-7">
+            <div class="column">
+                <img src="images/Ste Adelina 2.png" alt="Stephanie Martinez Work">
+                <p class="credit-column">Stephanie Adelina</p>
+            </div>
+            <div class="column">
+                <p class="credit-column">Stephanie Tamez</p>
+                <img src="images/Steph_2.png" alt="Stephanie Tamez Work">
+            </div>
+        </div>
+    </section>
+
+<!-- Sezione 8: fotografia tutta grandezza -->
+    <section id="sezione-8">
+        <div class="container-sezione-8">
+            <img src="images/Daniel Nabil.png" alt="Daniel Nabil Work">
+            <p class="credit-sezione-8">DANIEL NABIL</p>
+        </div>
+    </section>
+
+<!-- Sezione 9: chi sono -->
+    <section id="sezione-9">
+        <div class="container-sezione-9">
+            <div class="text-box-sezione-9">
+                <p>Testo della prima riga</p>
+                <p>Testo della seconda riga</p>
+            </div>
+            <div class="image-box-sezione-9">
+                <img src="path_to_image.jpg" alt="Descrizione dell'immagine">
+            </div>
+        </div>
+    </section>
+
+<!-- Sezione 10: scrivi un messaggio -->
+    <a href="#sezione-10" class="message-box">Scrivi un Messaggio</a>
+        <section id="sezione-10">
+            <h1>Scrivi qui il tuo messaggio</h1>
+            <form
+            action="https://formspree.io/f/xrbekkrr"
+            method="POST"
+        >
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Messaggio:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Invia</button>
+        </form>
+        </section>
+
+<!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Corinne Biordi - All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Termini di Servizio</a></p>
+    </footer> 
+
+<!-- Scorrimento fotografie - sezione 5 -->
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // Verifica se la larghezza dello schermo è inferiore o uguale a 768px
+            if (window.innerWidth <= 768) {
+                const scrollContainer = document.querySelector('.container-sezione-5');
+                let isScrolling = false;
+
+                window.addEventListener('wheel', (event) => {
+                    // Verifica che il contenitore sia visibile nella finestra
+                    if (scrollContainer.getBoundingClientRect().top <= window.innerHeight && scrollContainer.getBoundingClientRect().bottom >= 0) {
+                        // Blocca lo scorrimento verticale della pagina
+                        if (event.deltaY !== 0 && !isScrolling) {
+                            isScrolling = true;
+                            event.preventDefault(); // Impedisce lo scorrimento verticale della pagina
+                            scrollContainer.scrollLeft += event.deltaY; // Scorre orizzontalmente le immagini
+                            setTimeout(() => {
+                                isScrolling = false; // Resetta la possibilità di scorrere orizzontalmente
+                            }, 100);
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

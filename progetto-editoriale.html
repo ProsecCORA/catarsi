@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetto Editoriale</title>
+    <link rel="stylesheet" href="progetto-editoriale.css">
+    
+    <!-- Nasconde il menù -->   
+        <script>
+            let lastScrollTop = 0;
+            window.addEventListener("scroll", function() {
+                let navbar = document.getElementById("menu");
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop) {
+                    navbar.style.top = "-60px"; // Nasconde il menu
+                } else {
+                    navbar.style.top = "0"; // Mostra il menu
+                }
+                lastScrollTop = scrollTop;
+            });
+
+            window.onload = function() {
+                var messageButton = document.querySelector('.message-box');
+                
+                window.onscroll = function() {
+                    if (window.scrollY > 100) {
+                        messageButton.classList.add('hidden'); // Nasconde il bottone quando si scorre
+                    } else {
+                        messageButton.classList.remove('hidden'); // Mostra il bottone quando è in alto
+                    }
+                };
+            };
+        </script>
+    <!--  Menù ad hamburger-->  
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuToggle = document.querySelector(".menu-toggle");
+                const menu = document.querySelector("nav ul");
+
+                menuToggle.addEventListener("click", function () {
+                    menu.classList.toggle("show");
+                });
+            });
+        </script>
+    <!-- Cambio colore del menù -->   
+    <script>
+        document.addEventListener("scroll", function() {
+            const header = document.querySelector("header");
+            const sections = document.querySelectorAll("section, div"); 
+            let isOnLightBackground = false;
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 50 && rect.bottom >= 50) {
+                    const bgColor = window.getComputedStyle(section).backgroundColor;
+                    const rgb = bgColor.match(/\d+/g);
+        
+                    if (rgb) {
+                        const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+                        if (brightness > 128) { 
+                            isOnLightBackground = true;
+                        }
+                    }
+                }
+            });
+        
+            if (isOnLightBackground) {
+                header.classList.add("light");
+            } else {
+                header.classList.remove("light");
+            }
+        });
+    </script> 
+  
+    <header id="menu">
+        <div class="logo"><a href="index.html">catarsi</a></div>
+        <button class="menu-toggle">☰</button> <!-- Pulsante menu hamburger -->
+            <nav>
+                <ul>
+                    <li><a href="index.html#sezione-2">about</a></li>
+                    <li><a href="video.html">video</a></li>
+                    <li><a href="progetto-editoriale.html">progetto editoriale</a></li>
+                    <li><a href="index.html#sezione-9">chi sono</a></li>
+                </ul>
+            </nav>
+    </header>
+</head>
+
+<body>
+<!-- Sezione 1: fotografia  -->
+    <section id="sezione-1"> 
+        <div class="container-sezione1">
+            <div class="col-left-sezione1">
+                <img src="progetto editoriale/4.png" alt="Fotografia progetto editoriale">
+            </div>
+            <div class="col-right-sezione1">
+                <div class="text-sezione1">
+                    <p>Il diario, oggetto intimo, custode di emozioni, esperienze e traguardi personali, si sviluppa in cinque capitoli, corrispondenti a cinque fasi della guarigione personale. La copertina in pelle avvolge interamente il contenuto e un sottile nastro ne sigilla l’accesso, richiedendo delicatezza nel gesto di apertura e chiusura. Così il libro diviene 
+                        metafora del corpo umano: la copertina, come la pelle, protegge la parte più intima di ciascuno, che si rivela solo a chi sceglie di sfiorare le pagine con consapevolezza.                 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Sezione 2: Capitolo 1  -->
+    <section id="sezione-2">
+        <div class="container-sezione2">
+            <div class="col-left-sezione2">
+                <h3>riconoscere</h3>
+                <p>È il punto di partenza in cui ci vi è la consapevolezza di una ferita e del suo dolore. Il disordine emotivo che caratterizza questa prima fase è rappresentato da un’impaginazione caotica: frammenti di testo, parole spezzate o cancellate, disposte in modo sparso e alternate da una scrittura a mano più personale e una stampata, più meccanica. Le fotografie scattate suggeriscono un senso di fragilità e di intimità della persona attraverso il disturbo di elementi naturali, dettagli ravvicinati del corpo e ritratti che non guardano mai direttamente in camera. Inoltre, vengono impiegate tecniche tipografiche per stimolare la multisensorialità, come piccole fustelle che rivelano parzialmente le pagine e sovrapposizioni che creano stratificazioni, amplificando la complessità delle emozioni.</p>
+            </div>
+            <div class="col-right-sezione2">
+                <div class="slider-imagens">
+                    <img src="image1.jpg" alt="Immagine 1">
+                    <img src="image2.jpg" alt="Immagine 2">
+                    <img src="image3.jpg" alt="Immagine 3">
+                    <img src="image4.jpg" alt="Immagine 4">
+                    <img src="image5.jpg" alt="Immagine 5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Sezione 3: Capitolo 2  -->
+    <section id="sezione-3">
+        <div class="container-sezione3">
+            <div class="col-left-sezione3">
+                <div class="slider-imagens">
+                    <img src="image1.jpg" alt="Immagine 1">
+                    <img src="image2.jpg" alt="Immagine 2">
+                    <img src="image3.jpg" alt="Immagine 3">
+                    <img src="image4.jpg" alt="Immagine 4">
+                    <img src="image5.jpg" alt="Immagine 5">
+                </div>
+            </div>
+            <div class="col-right-sezione3">
+                <h3>affrontare</h3>
+                <p>Riconosciuta la ferita si vuole intervenire sul dolore che questa produce o ha prodotto. È un primo tentativo di ordine in cui convivono la razionalità e l’emotività, l’ordine e la confusione. La lotta tra i due opposti è suggerita da un tentativo di allineamento dei testi, minori eppure sempre presenti cancellazioni o scritte a mano. Le fotografie mantengono un linguaggio intimo ma più aggressivo. La tecnica del tatuaggio viene anticipata da disegni e schizzi che reinterpretano la realtà attraverso carte semitrasparenti su fotografie di porzioni del corpo, mostrati come spazi vuoti in attesa di essere trasformati. Una trasformazione indelebile e profonda come ricordano i fili che (col)legano due pagine.</p>
+            </div>
+        </div>
+    </section>
+
+<!-- Sezione 4: Capitolo 3  -->    
+    <section id="sezione-4">
+        <div class="container-sezione4">
+            <div class="col-left-sezione4">
+                <h3>trasformare</h3>
+                <p>È il momento in cui la tecnica del tatuaggio prende forma: il dolore, fisico e/o emotivo diviene un (di)segno inciso sulla pelle. Questo legame è evocato da un ritratto sfuocato a tutta pagina, simbolo del dualismo del tatuaggio: un’esposizione apparentemente nuda che racchiude un significato più o meno nascosto. Sul petto del ritratto, un primo piano delle linee che si tracciano sulla pelle enfatizza il processo. La soggettività del dolore e del modo di affrontarlo si traduce in due pagine vuote, un invito all’azione per il lettore: scrivere una riflessione, tracciare una linea o semplicemente trovare uno spazio in cui sentirsi compresi.</p>
+            </div>
+            <div class="col-right-sezione4">
+                <div class="slider-imagens">
+                    <img src="image1.jpg" alt="Immagine 1">
+                    <img src="image2.jpg" alt="Immagine 2">
+                    <img src="image3.jpg" alt="Immagine 3">
+                    <img src="image4.jpg" alt="Immagine 4">
+                    <img src="image5.jpg" alt="Immagine 5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Sezione 5: Capitolo 4  -->
+    <section id="sezione-5">
+        <div class="container-sezione5">
+            <div class="col-left-sezione5">
+                <div class="slider-imagens">
+                    <img src="image1.jpg" alt="Immagine 1">
+                    <img src="image2.jpg" alt="Immagine 2">
+                    <img src="image3.jpg" alt="Immagine 3">
+                    <img src="image4.jpg" alt="Immagine 4">
+                    <img src="image5.jpg" alt="Immagine 5">
+                </div>
+            </div>
+            <div class="col-right-sezione5">
+                <h3>vedere</h3>
+                <p>È il momento in cui si svela il risultato: il tatuaggio, ormai parte del corpo, diventa espressione di una nuova percezione di sé—più sicura, più completa, più libera. Questa nuova armonia è rappresentata da un’impaginazione ordinata, dove le frasi seguono un allineamento regolare e gli spazi tra i blocchi di testo sono ben definiti, favorendo una lettura calma e meditativa, in cui ogni elemento trova il proprio posto e respiro. Le fotografie esplorano i dettagli del tatuaggio suggerendo non solo un senso di sicurezza, ma anche di sarcasmo, come a ricordare che il percorso verso l’accettazione di sé non deve sempre essere solenne, ma può lasciare spazio anche all’ironia.</p>
+            </div>
+        </div>
+    </section>
+
+<!-- Sezione 6: Capitolo 5  -->
+    <section id="sezione-6">
+        <div class="container-sezione6">
+            <div class="col-left-sezione6">
+                <h3>accettare</h3>
+                <p>L’ultimo passo, nonché capitolo, è una raccolta di testimonianze che riconoscono il tatuaggio come il simbolo tangibile di un dialogo interiore: accettare non significa dimenticare o negare il passato, ma integrarlo come parte della propria identità. L’impaginazione è interamente visiva, con fotografie di persone di culture e contesti diversi che condividono il proprio percorso attraverso un confronto tra il prima e il dopo e testimoniano come il tatuaggio sia un linguaggio universale, capace di creare connessioni tra persone ed esperienze lontane tra loro. Storie che raccontano successi e rinascite e infondono un senso di speranza universale: l’augurio di affrontare il futuro con più forza e fiducia in sé stessi, consapevoli che ogni passo, per quanto piccolo, è un passo verso la vita.</p>
+            </div>
+            <div class="col-right-sezione6">
+                <div class="slider-imagens">
+                    <img src="image1.jpg" alt="Immagine 1">
+                    <img src="image2.jpg" alt="Immagine 2">
+                    <img src="image3.jpg" alt="Immagine 3">
+                    <img src="image4.jpg" alt="Immagine 4">
+                    <img src="image5.jpg" alt="Immagine 5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Corinne Biordi - All rights reserved.</p>
+            <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Termini di Servizio</a></p>
+        </footer> 
+    </body>
+</html>
